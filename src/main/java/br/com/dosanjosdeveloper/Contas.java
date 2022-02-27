@@ -67,16 +67,35 @@ public class Contas implements Apresentacoes {
 
     @Override
     public void Saque(double valor) {
+        if (this.saldo > valor){
+            this.saldo -= valor;
+            System.out.println("Saque Efetuado com Sucesso!");
+        }else {
+            System.out.println("Não foi possivel atender, Saldo Insuficiente! :(");
+        }
 
     }
 
     @Override
     public void Deposito(double valor) {
+        if (valor > 0){
+            this.saldo += valor;
+            System.out.println("Depósito Realizados com Sucesso");
+        }else {
+            System.out.println("Valor Inválido!");
+        }
 
     }
 
     @Override
     public void Transferir(double valor, Contas contaDestino) {
+
+        if (this.saldo > valor){
+            this.saldo -= valor;
+            contaDestino.saldo = valor;
+        }
+
+
 
     }
 
